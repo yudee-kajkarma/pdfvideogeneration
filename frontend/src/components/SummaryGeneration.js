@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Check, FileText } from 'lucide-react';
 import { summarizePDF, getJobStatus, downloadSummary } from '../services/api';
 import './SummaryGeneration.css';
 
@@ -151,12 +152,12 @@ const SummaryGeneration = ({ onSummaryGenerated, onBack }) => {
               <div className="file-input-label">
                 {file ? (
                   <div>
-                    <p>✓ {file.name}</p>
+                    <p className="icon-text"><Check size={18} /> {file.name}</p>
                     <p className="file-size">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                   </div>
                 ) : (
                   <div>
-                    <p>📄 Drag and drop your PDF here</p>
+                    <p className="icon-text"><FileText size={28} /> Drag and drop your PDF here</p>
                     <p>or click to browse</p>
                   </div>
                 )}

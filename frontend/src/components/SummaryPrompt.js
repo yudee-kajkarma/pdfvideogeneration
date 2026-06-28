@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 import { getJobStatus, downloadSummary, generateSummary } from '../services/api';
 import './SummaryPrompt.css';
 
@@ -84,7 +85,7 @@ const SummaryPrompt = ({ jobId, onSummaryGenerated, onDismiss }) => {
   if (summaryStatus === 'completed') {
     return (
       <div className="card summary-prompt">
-        <h3>✓ Summary Generated!</h3>
+        <h3 className="icon-text"><CheckCircle2 size={20} /> Summary Generated!</h3>
         <p>The book summary has been generated successfully.</p>
         <div className="button-group">
           <button className="btn btn-success" onClick={handleDownloadSummary}>

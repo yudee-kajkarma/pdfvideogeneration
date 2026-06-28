@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Check, FileText } from 'lucide-react';
 import { uploadPDF } from '../services/api';
 import CartesiaConfig from './CartesiaConfig';
 import './PDFUpload.css';
@@ -121,12 +122,12 @@ const PDFUpload = ({ onUploadSuccess, onBack }) => {
             <div className="file-input-label">
               {file ? (
                 <div>
-                  <p>✓ {file.name}</p>
+                  <p><span className="file-name"><Check size={18} /> {file.name}</span></p>
                   <p className="file-size">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                 </div>
               ) : (
                 <div>
-                  <p>📄 Drag and drop your PDF here</p>
+                  <p><FileText size={28} /> Drag and drop your PDF here</p>
                   <p>or click to browse</p>
                 </div>
               )}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 import { getJobStatus, generateSummaryVideo, downloadSummaryVideo } from '../services/api';
 import './SummaryVideoPrompt.css';
 
@@ -87,7 +88,7 @@ const SummaryVideoPrompt = ({ jobId, onVideoGenerated, onDismiss }) => {
   if (videoStatus === 'completed') {
     return (
       <div className="card summary-video-prompt">
-        <h3>✓ Summary Video Generated!</h3>
+        <h3 className="icon-text"><CheckCircle2 size={20} /> Summary Video Generated!</h3>
         <p>The summary video has been generated successfully.</p>
         <div className="button-group">
           <button className="btn btn-success" onClick={handleDownloadVideo}>

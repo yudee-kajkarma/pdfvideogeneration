@@ -1,9 +1,9 @@
 .cartesia-config {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #dee2e6;
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
 }
 
 .cartesia-config .form-group {
@@ -18,54 +18,64 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #333;
+  color: var(--text);
 }
 
 .cartesia-config select {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   font-size: 1rem;
-  background-color: white;
+  background-color: rgba(10, 9, 18, 0.5);
+  color: var(--text);
 }
 
 .cartesia-config select:disabled {
-  background-color: #e9ecef;
+  background-color: var(--surface-2);
+  color: var(--text-dim);
   cursor: not-allowed;
+}
+
+.cartesia-config select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-soft);
 }
 
 .cartesia-config input[type="text"] {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   font-size: 1rem;
-  background-color: white;
+  background-color: rgba(10, 9, 18, 0.5);
+  color: var(--text);
 }
 
 .cartesia-config input[type="text"]:disabled {
-  background-color: #e9ecef;
+  background-color: var(--surface-2);
+  color: var(--text-dim);
   cursor: not-allowed;
 }
 
 .cartesia-config input[type="text"]:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-soft);
 }
 
 .voice-input-mode-toggle {
   display: inline-flex;
   gap: 0;
   margin-bottom: 0.75rem;
-  background-color: #f0f0f0;
-  border-radius: 10px;
+  background-color: var(--surface-2);
+  border-radius: var(--radius-sm);
   padding: 0.3rem;
   position: relative;
-  border: 1px solid #d0d0d0;
+  border: 1px solid var(--border);
   width: 100%;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-option {
@@ -92,8 +102,8 @@
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #666;
-  border-radius: 8px;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   position: relative;
@@ -101,27 +111,27 @@
 }
 
 .toggle-option input[type="radio"]:checked + label {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--glow);
   font-weight: 600;
   transform: translateY(-1px);
 }
 
 .toggle-option input[type="radio"]:not(:checked) + label:hover {
-  background-color: rgba(102, 126, 234, 0.1);
-  color: #667eea;
+  background-color: var(--primary-soft);
+  color: var(--primary);
 }
 
 .toggle-option input[type="radio"]:disabled + label {
   cursor: not-allowed;
   opacity: 0.5;
-  background-color: #f5f5f5;
+  background-color: transparent;
 }
 
 .toggle-option input[type="radio"]:disabled + label:hover {
-  background-color: #f5f5f5;
-  color: #666;
+  background-color: transparent;
+  color: var(--text-muted);
 }
 
 .voice-id-input {
@@ -133,21 +143,21 @@
   display: block;
   margin-top: 0.25rem;
   font-size: 0.875rem;
-  color: #6c757d;
+  color: var(--text-muted);
 }
 
 .voice-details {
   margin-top: 0.75rem;
   padding: 0.75rem;
-  background-color: white;
-  border-radius: 4px;
-  border: 1px solid #dee2e6;
+  background-color: var(--surface-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
 }
 
 .voice-description {
   margin: 0 0 0.5rem 0;
   font-size: 0.9rem;
-  color: #495057;
+  color: var(--text-muted);
 }
 
 .voice-tags {
@@ -160,8 +170,9 @@
 .voice-tags .tag {
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-soft);
+  color: var(--primary);
+  border: 1px solid var(--border);
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 500;
@@ -169,22 +180,21 @@
 
 .voice-language {
   display: block;
-  color: #6c757d;
+  color: var(--text-muted);
   font-size: 0.875rem;
 }
 
 .loading {
   text-align: center;
   padding: 1rem;
-  color: #6c757d;
+  color: var(--text-muted);
 }
 
 .alert-warning {
   padding: 0.75rem;
   margin-bottom: 1rem;
-  background-color: #fff3cd;
-  border: 1px solid #ffc107;
-  border-radius: 4px;
-  color: #856404;
+  background-color: var(--warning-soft);
+  border: 1px solid var(--warning);
+  border-radius: var(--radius-sm);
+  color: var(--text);
 }
-

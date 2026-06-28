@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BookOpen, Plus } from 'lucide-react';
 import './App.css';
 import HomePage from './components/HomePage';
 import PDFUpload from './components/PDFUpload';
@@ -19,7 +20,7 @@ function App() {
   const [jobStatus, setJobStatus] = useState(null);
   const [summaryPromptShown, setSummaryPromptShown] = useState(false);
   const [summaryVideoPromptShown, setSummaryVideoPromptShown] = useState(false);
-  const [stopPolling, setStopPolling] = useState(false);
+  const [stopPolling] = useState(false);
 
   const handleSelectOption = (option) => {
     if (option === 'generate-video') {
@@ -85,7 +86,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>📚 PDF to Video Generator</h1>
+        <h1><BookOpen size={28} strokeWidth={2.2} /> PDF to Video Generator</h1>
         <p>Convert your PDF books into narrated videos</p>
       </header>
 
@@ -168,7 +169,7 @@ function App() {
                 setSummaryVideoPromptShown(false);
               }}
             >
-              Start New Job
+              <Plus size={18} /> Start New Job
             </button>
           </>
         )}

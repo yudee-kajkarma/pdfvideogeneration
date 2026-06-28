@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Music, Headphones } from 'lucide-react';
 import { uploadAudio } from '../services/api';
 import './PDFUpload.css'; // Reuse existing CSS for consistent look
 
@@ -93,12 +94,12 @@ const AudioUpload = ({ onUploadSuccess, onBack }) => {
             <div className="file-input-label">
               {file ? (
                 <div>
-                  <p>🎵 {file.name}</p>
+                  <p className="icon-text"><Music size={18} /> {file.name}</p>
                   <p className="file-size">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                 </div>
               ) : (
                 <div>
-                  <p>🎧 Drag and drop your Audio file here</p>
+                  <p className="icon-text"><Headphones size={28} /> Drag and drop your Audio file here</p>
                   <p>or click to browse</p>
                 </div>
               )}

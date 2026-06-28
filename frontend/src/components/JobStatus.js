@@ -1,4 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {
+  Clapperboard,
+  FileText,
+  Mic,
+  Palette,
+  Settings,
+  Check,
+  CheckCircle2,
+  Video,
+  Download,
+  BookOpen,
+  Tag,
+  Mic2,
+  Volume2,
+  Bot,
+} from 'lucide-react';
 import { getJobStatus, downloadVideo } from '../services/api';
 import './JobStatus.css';
 
@@ -184,7 +200,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
       {showMainProgress && (
         <div className="progress-section">
           <div className="progress-title">
-            <span className="progress-icon">🎬</span>
+            <span className="progress-icon"><Clapperboard size={18} /></span>
             Main Video Generation
           </div>
           <div className="progress-bar">
@@ -206,25 +222,25 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
           </div>
           {mainProgress < 30 && (
             <div className="progress-stage">
-              <span className="stage-indicator">📄</span>
+              <span className="stage-indicator"><FileText size={18} /></span>
               <span>Extracting and processing PDF content...</span>
             </div>
           )}
           {mainProgress >= 30 && mainProgress < 60 && (
             <div className="progress-stage">
-              <span className="stage-indicator">🎤</span>
+              <span className="stage-indicator"><Mic size={18} /></span>
               <span>Generating audio narration and timestamps...</span>
             </div>
           )}
           {mainProgress >= 60 && mainProgress < 90 && (
             <div className="progress-stage">
-              <span className="stage-indicator">🎨</span>
+              <span className="stage-indicator"><Palette size={18} /></span>
               <span>Rendering video frames with synchronized text...</span>
             </div>
           )}
           {mainProgress >= 90 && mainProgress < 100 && (
             <div className="progress-stage">
-              <span className="stage-indicator">⚙️</span>
+              <span className="stage-indicator"><Settings size={18} /></span>
               <span>Encoding final video...</span>
             </div>
           )}
@@ -234,7 +250,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
       {showSummaryProgress && (
         <div className="progress-section">
           <div className="progress-title">
-            <span className="progress-icon">📝</span>
+            <span className="progress-icon"><FileText size={18} /></span>
             Summary Generation
           </div>
           <div className="progress-bar">
@@ -259,14 +275,14 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
 
       {summaryStatus === 'completed' && summaryProgress === 100 && (
         <div className="alert alert-success">
-          ✓ Summary generated successfully. Ready to create summary video.
+          <Check size={16} /> Summary generated successfully. Ready to create summary video.
         </div>
       )}
 
       {showSummaryVideoProgress && (
         <div className="progress-section">
           <div className="progress-title">
-            <span className="progress-icon">🎥</span>
+            <span className="progress-icon"><Video size={18} /></span>
             Summary Video Generation
           </div>
           <div className="progress-bar">
@@ -291,7 +307,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
 
       {summaryVideoStatus === 'completed' && summaryVideoProgress === 100 && (
         <div className="alert alert-success">
-          ✓ Summary video generated successfully. You can download it from the summary section.
+          <Check size={16} /> Summary video generated successfully. You can download it from the summary section.
         </div>
       )}
 
@@ -310,7 +326,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
       {isCompleted && hasVideo && (
         <div className="download-section">
           <div className="alert alert-success">
-            <span className="success-icon">✓</span>
+            <span className="success-icon"><CheckCircle2 size={24} /></span>
             <div>
               <strong>Main video generated successfully!</strong>
               <p style={{ margin: '8px 0 0 0', fontSize: '0.9em', opacity: 0.9 }}>
@@ -330,7 +346,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
               </>
             ) : (
               <>
-                <span>⬇️</span>
+                <Download size={18} />
                 Download Main Video
               </>
             )}
@@ -344,7 +360,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
           <div className="metadata-grid">
             {status.metadata.book_title && (
               <div className="metadata-item">
-                <span className="metadata-icon">📚</span>
+                <span className="metadata-icon"><BookOpen size={18} /></span>
                 <div>
                   <strong>Book:</strong> {status.metadata.book_title}
                 </div>
@@ -352,7 +368,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
             )}
             {status.metadata.genre && (
               <div className="metadata-item">
-                <span className="metadata-icon">🏷️</span>
+                <span className="metadata-icon"><Tag size={18} /></span>
                 <div>
                   <strong>Genre:</strong> {status.metadata.genre}
                 </div>
@@ -360,7 +376,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
             )}
             {status.metadata.start_page && (
               <div className="metadata-item">
-                <span className="metadata-icon">📄</span>
+                <span className="metadata-icon"><FileText size={18} /></span>
                 <div>
                   <strong>Pages:</strong> {status.metadata.start_page} - {status.metadata.end_page}
                 </div>
@@ -368,7 +384,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
             )}
             {status.metadata.voice_provider && (
               <div className="metadata-item">
-                <span className="metadata-icon">🎙️</span>
+                <span className="metadata-icon"><Mic2 size={18} /></span>
                 <div>
                   <strong>Voice Provider:</strong> {status.metadata.voice_provider.charAt(0).toUpperCase() + status.metadata.voice_provider.slice(1)}
                 </div>
@@ -376,7 +392,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
             )}
             {status.metadata.cartesia_voice_id && (
               <div className="metadata-item">
-                <span className="metadata-icon">🔊</span>
+                <span className="metadata-icon"><Volume2 size={18} /></span>
                 <div>
                   <strong>Cartesia Voice:</strong> {status.metadata.cartesia_voice_id.substring(0, 8)}...
                 </div>
@@ -384,7 +400,7 @@ const JobStatus = ({ jobId, onStatusUpdate, stopPolling = false }) => {
             )}
             {status.metadata.cartesia_model_id && (
               <div className="metadata-item">
-                <span className="metadata-icon">🤖</span>
+                <span className="metadata-icon"><Bot size={18} /></span>
                 <div>
                   <strong>Cartesia Model:</strong> {status.metadata.cartesia_model_id}
                 </div>

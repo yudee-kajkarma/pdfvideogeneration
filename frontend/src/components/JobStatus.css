@@ -4,13 +4,15 @@
   align-items: center;
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
 }
 
 .job-id {
   font-family: monospace;
-  color: #666;
+  color: var(--text-muted);
 }
 
 .status-section {
@@ -21,11 +23,16 @@
 
 .progress-section {
   margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .progress-title {
   font-weight: 600;
-  color: #333;
+  color: var(--text);
   margin-bottom: 0.4rem;
   display: flex;
   align-items: center;
@@ -33,7 +40,15 @@
 }
 
 .progress-icon {
-  font-size: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-soft);
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
 .progress-stage {
@@ -41,15 +56,20 @@
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.75rem;
-  padding: 0.5rem;
-  background: #f0f4ff;
-  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  background: var(--info-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   font-size: 0.9em;
-  color: #555;
+  color: var(--text-muted);
 }
 
 .stage-indicator {
-  font-size: 1.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--info);
+  flex-shrink: 0;
 }
 
 .progress-info {
@@ -60,13 +80,13 @@
 }
 
 .progress-text {
-  color: #666;
+  color: var(--text-muted);
   font-style: italic;
   flex: 1;
 }
 
 .progress-percentage {
-  color: #667eea;
+  color: var(--primary);
   font-weight: 600;
   font-size: 1.1rem;
   margin-left: 1rem;
@@ -82,7 +102,11 @@
 .metadata-section {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 2px solid #e0e0e0;
+  border-top: 1px solid var(--border-strong);
+}
+
+.metadata-section h3 {
+  color: var(--text);
 }
 
 .metadata-grid {
@@ -94,8 +118,10 @@
 
 .metadata-grid > div {
   padding: 0.75rem;
-  background: #f8f9fa;
-  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
 }
 
 .metadata-item {
@@ -103,24 +129,36 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem;
-  background: #f8f9fa;
-  border-radius: 6px;
-  transition: background 0.2s ease;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .metadata-item:hover {
-  background: #e9ecef;
+  background: var(--surface-solid);
+  border-color: var(--border-strong);
 }
 
 .metadata-icon {
-  font-size: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-soft);
+  color: var(--primary);
   flex-shrink: 0;
 }
 
 .success-icon {
-  font-size: 1.5em;
-  color: #28a745;
-  margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--success);
+  flex-shrink: 0;
 }
 
 .spinner-small {
@@ -151,15 +189,9 @@
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  padding: 1rem;
-  background: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 6px;
-  color: #155724;
 }
 
 .alert.alert-success strong {
   display: block;
   margin-bottom: 0.25rem;
 }
-

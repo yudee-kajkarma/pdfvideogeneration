@@ -1,10 +1,23 @@
 .summary-video-prompt {
-  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-  border: 3px solid #f39c12;
-  box-shadow: 0 10px 40px rgba(243, 156, 18, 0.3);
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow), var(--glow);
   position: relative;
   z-index: 1000;
   animation: popupSlideIn 0.3s ease-out;
+}
+
+.summary-video-prompt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: var(--primary-soft);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
 }
 
 @keyframes popupSlideIn {
@@ -19,13 +32,12 @@
 }
 
 .summary-video-prompt h3 {
-  color: #e67e22;
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 
 .summary-video-prompt p {
-  color: #555;
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
-
