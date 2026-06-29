@@ -33,6 +33,28 @@
   border-radius: 2px;
 }
 
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Override the accent bar that .form-group label::before would add */
+.checkbox-label::before {
+  display: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

@@ -232,9 +232,10 @@ export const listCartesiaModels = async () => {
   return response.data;
 };
 
-export const uploadAudio = async (file) => {
+export const uploadAudio = async (file, isReel = false) => {
   const formData = new FormData();
   formData.append('file', file);
+  formData.append('is_reel', isReel);
 
   // Use axios for consistency with other API functions
   // baseURL is already '/api', so just use '/upload-audio'

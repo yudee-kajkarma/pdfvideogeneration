@@ -5,6 +5,7 @@ import './PDFUpload.css'; // Reuse existing CSS for consistent look
 
 const AudioUpload = ({ onUploadSuccess, onBack }) => {
   const [file, setFile] = useState(null);
+  const [isReel, setIsReel] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -55,7 +56,7 @@ const AudioUpload = ({ onUploadSuccess, onBack }) => {
 
     try {
       // Call the new API endpoint
-      const response = await uploadAudio(file);
+      const response = await uploadAudio(file, isReel);
 
       // Pass the job_id back to App.js to trigger the JobStatus view
       onUploadSuccess(response.job_id);
@@ -105,6 +106,18 @@ const AudioUpload = ({ onUploadSuccess, onBack }) => {
               )}
             </div>
           </div>
+        </div>
+
+        <div className="form-group">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={isReel}
+              onChange={(e) => setIsReel(e.target.checked)}
+              disabled={isUploading}
+            />
+            <span>Create Reel</span>
+          </label>
         </div>
 
         {error && (
