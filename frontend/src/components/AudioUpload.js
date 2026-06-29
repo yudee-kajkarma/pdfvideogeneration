@@ -12,12 +12,16 @@ const AudioUpload = ({ onUploadSuccess, onBack }) => {
   const fileInputRef = useRef(null);
 
   const handleFileSelect = (selectedFile) => {
-    // Check if file type starts with 'audio/'
-    if (selectedFile && selectedFile.type.startsWith('audio/')) {
+    // Only allow MP3 files
+    const isMp3 =
+      selectedFile &&
+      (selectedFile.type === 'audio/mpeg' ||
+        selectedFile.name.toLowerCase().endsWith('.mp3'));
+    if (isMp3) {
       setFile(selectedFile);
       setError(null);
     } else {
-      setError('Please select a valid Audio file (MP3, WAV, etc.)');
+      setError('Please select a valid MP3 file');
     }
   };
 
@@ -88,7 +92,7 @@ const AudioUpload = ({ onUploadSuccess, onBack }) => {
             <input
               ref={fileInputRef}
               type="file"
-              accept="audio/*" // Accepts mp3, wav, etc.
+              accept=".mp3,audio/mpeg" // Only MP3 files
               onChange={handleFileInputChange}
               disabled={isUploading}
             />
